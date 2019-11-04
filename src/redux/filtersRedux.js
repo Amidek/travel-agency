@@ -1,5 +1,4 @@
 /* SELECTORS */
-
 export const getAllFilters = ({filters}) => filters;
 
 /* ACTIONS */
