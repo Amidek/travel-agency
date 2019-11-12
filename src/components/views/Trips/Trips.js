@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import TripSummary from '../../features/TripSummary/TripSummary';
 import Section from '../../layout/Section/Section';
 import PageTitle from '../../common/PageTitle/PageTitle';
@@ -21,11 +20,6 @@ const Trips = ({trips}) => (
             )) : (
               <p>Sorry, no results found. Try adjusting the filters.</p>
             )}
-            <BrowserRouter>
-              <Switch location={location}>
-                <Route exact path='/trip/:id' component={Trips} />
-              </Switch>
-            </BrowserRouter>
           </Row>
         </Col>
       </Row>
