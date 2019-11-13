@@ -14,7 +14,7 @@ const OrderSummary = ({tripCost, options}) => (
 
 OrderSummary.propTypes = {
   options: PropTypes.object,
-  tripCost: PropTypes.number,
+  tripCost: PropTypes.string,
 };
   
 
