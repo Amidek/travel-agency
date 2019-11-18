@@ -1,4 +1,5 @@
 /* SELECTORS */
+import { parseOptionPrice } from '../../src/utils/parseOptionPrice';
 
 export const getAllTrips = ({trips}) => trips;
 
@@ -24,6 +25,13 @@ export const getFilteredTrips = ({trips, filters}) => {
     output = output.filter(trip => pattern.test(trip.tags));
   }
   // TODO - sort by cost descending (most expensive goes first)
+  output = output.map(trip => {
+    trip.cost = parseOptionPrice(trip.cost).value;
+    return trip;
+  })
+    .sort((tripA, tripB) => {
+      return tripB.cost - tripA.cost;
+    });
 
   return output;
 };
