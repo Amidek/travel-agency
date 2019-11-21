@@ -38,7 +38,7 @@ export const getFilteredTrips = ({trips, filters}) => {
 
 export const getTripById = ({trips}, tripId) => {
   const filtered = trips.filter(trip => trip.id == tripId);
-
+  filtered[0].cost = parseOptionPrice(filtered[0].cost).value;
   // TODO - filter trips by tripId
   console.log('filtering trips by tripId:', tripId, filtered);
   return filtered.length ? filtered[0] : {error: true};

@@ -81,7 +81,7 @@ const Trip = ({error, name, image, cost, days, description, country, intro}) => 
 Trip.propTypes = {
   name: PropTypes.string,
   image: PropTypes.string,
-  cost: PropTypes.number,
+  tripCost: PropTypes.string,
   days: PropTypes.number,
   description: PropTypes.string,
   country: PropTypes.object,

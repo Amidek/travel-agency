@@ -24,7 +24,7 @@ const OrderForm = ({tripCost, options}) => (
 
 OrderForm.propTypes = {
   options: PropTypes.object,
-  tripCost: PropTypes.number,
+  tripCost: PropTypes.string,
   pricing: PropTypes.array,
 };
 
