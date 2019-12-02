@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './OrderOption.scss';
 import { formatPrice } from '../../../utils/formatPrice';
+import { onChange } from '../../../redux/orderRedux';
 
 const OrderOptionDropdown = ({values, required, currentValue, setOptionValue}) => (
   <select
     className={styles.dropdown}
     value={currentValue}
-    onChange={event => setOptionValue(event.currentTarget.value)}
+    onChange={event => setOptionValue(event.currentTarget.value), onChange}
   >
     {required ? '' : (
       <option key='null' value=''>---</option>
