@@ -38,12 +38,12 @@ describe('Component TripSummary', () => {
   it('should render spans in right order', () => {
     const tags = ['one', 'two', 'three'];
     const wrapper = shallow(<TripSummary tags={tags} />);
-    expect(wrapper.find('span').at(0).props().tags).to.equal(tags[0]);
+    expect(wrapper.find('.tag').prop('className').at(0).tags).to.equal('one');
   });
 
   it('should not render div with class tags', () => {
     const tags = [];
     const component = shallow(<TripSummary tags={tags} />);
-    expect(component.find('div').prop()).toEqual('tags');
+    expect(component.find('.tags').prop('className')).toEqual('tags');
   });
 });
