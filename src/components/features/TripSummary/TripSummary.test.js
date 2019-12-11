@@ -35,10 +35,13 @@ describe('Component TripSummary', () => {
     expect(component.toThrow);
   });
 
-  it('should render spans in right order', () => {
-    const tags = ['one', 'two', 'three'];
-    const wrapper = shallow(<TripSummary tags={tags} />);
-    expect(wrapper.find('.tag').prop('className').at(0).tags).to.equal('one');
+  it('should render tags array correctly', () => {
+    const expectedArray = ['one', 'two', 'three'];
+    const component = shallow(<TripSummary tags={expectedArray} />);
+
+    expect(component.find('.tags span').at(0).text()).toEqual(expectedArray[0]);
+    expect(component.find('.tags span').at(1).text()).toEqual(expectedArray[1]);
+    expect(component.find('.tags span').at(2).text()).toEqual(expectedArray[2]);
   });
 
   it('should not render div with class tags', () => {
