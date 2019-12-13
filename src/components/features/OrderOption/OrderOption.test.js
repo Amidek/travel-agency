@@ -99,6 +99,7 @@ describe('Component OrderOption', () => {
             expect(options.at(0).prop('value')).toBe(mockProps.values[0].id);
             expect(options.at(1).prop('value')).toBe(mockProps.values[1].id);
           });
+
           it('should run setOrderOption function on change', () => {
             renderedSubcomponent.find('select').simulate('change', {currentTarget: {value: testValue}});
             expect(mockSetOrderOption).toBeCalledTimes(1);
@@ -106,63 +107,74 @@ describe('Component OrderOption', () => {
           });
           break;
         }
+
         case 'icons' : {
           it('should simulate click on last div with class Icon', () => {
             renderedSubcomponent.find('.icon div').at(1).simulate('click', {currentTarget: {value: testValue}});
           });
+
           it('should render div with class icon', () => {
             expect(renderedSubcomponent.prop('className')).toEqual('icon');
           });
           break;
         }
+
         case 'checkboxes' : {
           it('contains input and value', () => {
-            const input = renderedSubcomponent.find('value');
+            const input = renderedSubcomponent.find('label').prop('input .value').simulate('change', {checked: {value: true}});
+            
             expect(input).toBe(testValue);
           });
+
           it('should render div with class: checkboxes and input with type: checkbox', () => {
             expect(renderedSubcomponent.prop('className')).toEqual('checkboxes');
-            expect(renderedSubcomponent.find('input').prop('type')).toEqual('checkbox');
+            expect(renderedSubcomponent.find('input').prop('')).toEqual('checkbox');
           });
           break;
         }
+
         case 'number' : {
           it('contains input and limits', () => {
             const input = renderedSubcomponent.find('input');
             expect(input.length).toBe(1);
 
-            const min = input.find('min');
-            const max = input.find('max');
+            const min = mockProps.limits.min;
+            const max = mockProps.limits.max;
             expect(input.prop('value')).toBe(mockPropsForType.number.currentValue);
-            expect(input.prop(min)).toBe(mockProps.limits.min);
-            expect(input.prop(max)).toBe(mockProps.limits.max);
+            expect(min).toBe(mockProps.limits.min);
+            expect(max).toBe(mockProps.limits.max);
 
           });
+
           it('should render div with class: number and input with type: number', () => {
             expect(renderedSubcomponent.prop('className')).toEqual('number');
             expect(renderedSubcomponent.find('input').prop('type')).toEqual('number');
           });
+
           it('should run setOrderOption function on change', () => {
-            renderedSubcomponent.find('select').simulate('change', {currentTarget: {value: testValueNumber}});
+            renderedSubcomponent.find('input').simulate('change', {currentTarget: {value: testValueNumber}});
             expect(mockSetOrderOption).toBeCalledTimes(1);
             expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValueNumber });
           });
           break;
         }
+
         case 'text' : {
           it('contains select and options', () => {
             const input = renderedSubcomponent.find('input');
             expect(input.length).toBe(1);
           });
+
           it('should render input with type: text and div with class: text', () => {
             expect(renderedSubcomponent.prop('className')).toEqual('text');
             expect(renderedSubcomponent.find('input').prop('type')).toEqual('text');
           });
           break;
         }
+
         case 'date' : {
           it('should simulate change', () => {
-            renderedSubcomponent.find('DatePicker').simulate('change', testValue);     
+            subcomponent.find('DatePicker').simulate('change', testValue);     
           });
           break;
         }
