@@ -2,7 +2,6 @@ const fs = require('fs');
 
 const distDir = './server';
 
-
 if (!fs.existsSync(distDir)) {
   fs.mkdirSync(distDir);
 }
