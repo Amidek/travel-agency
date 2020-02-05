@@ -240,6 +240,31 @@
       "start-date": "",
       "totalCost": "$129,702",
       "id": 21
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "afasf",
+      "contact": "456456",
+      "start-date": "",
+      "totalCost": "$129,702",
+      "id": 22
+    },
+    {
+      "car-rental": "suv",
+      "features": [
+        "all-inclusive"
+      ],
+      "adults": 2,
+      "children": 1,
+      "name": "Mario",
+      "contact": "123456789",
+      "start-date": "2020-02-12T09:47:34.000Z",
+      "totalCost": "$325,254",
+      "id": 23
     }
   ]
 }

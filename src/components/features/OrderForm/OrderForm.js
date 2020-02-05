@@ -2,7 +2,7 @@ import React from 'react';
 import {Row, Col} from 'react-flexbox-grid';
 import PropTypes from 'prop-types';
 import OrderSummary from '../OrderSummary/OrderSummary';
-import Pricing from '../../../data/pricing.json';
+import pricing from '../../../data/pricing.json';
 import OrderOption from '../OrderOption/OrderOption.js';
 import Button from '../../common/Button/Button.js';
 import settings from '../../../data/settings';
@@ -40,7 +40,7 @@ const sendOrder = (options, tripCost, tripId, tripName, countryCode) => {
 
 const OrderForm = props => (
   <Row>
-    {Pricing.map((option) => (
+    {pricing.map((option) => (
       <Col md={4} key={option.id}>
         <OrderOption {...option}
           currentValue={props.options[option.id]}
